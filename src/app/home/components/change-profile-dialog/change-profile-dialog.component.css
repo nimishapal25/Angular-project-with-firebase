@@ -1,0 +1,17 @@
+.circle{
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #C8A2C8;
+    text-align: center;
+    background:#F5F5F5;
+    margin-right:60px;
+    bottom:100px;
+    position: relative;
+}
+
+.form-container{
+    height:50px;
+}

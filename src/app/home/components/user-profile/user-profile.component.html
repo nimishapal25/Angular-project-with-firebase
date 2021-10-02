@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg">
+    <div class=" d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+            <button [matMenuTriggerFor]="menu" #menuTrigger>
+                <p class="circle" *ngIf="Notpic">{{name | initialsPipe | uppercase}}</p>
+            </button>
+            <mat-menu #menu="matMenu">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image">
+                            <a>
+                                <img src="{{profileUrl}}" class="circle" *ngIf="pic">
+                            </a>
+                            <a>
+                                <p class="circle" *ngIf="Notpic">{{name | initialsPipe | uppercase}}</p>
+                            </a>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <mat-card-title>{{name}}</mat-card-title>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cols">
+                                    <mat-card-actions>
+                                        <button mat-button (click)="openDialog()">Change Picture</button>
+                                    </mat-card-actions>
+                                </td>
+                            </tr>
+                        </table>
+                    </mat-card-header>
+                </mat-card>
+            </mat-menu>
+
+
+            <button mat-button [matMenuTriggerFor]="menu" #menuTrigger>
+                <img src="{{profileUrl}}" class="circle" *ngIf="pic">
+            </button>
+            <mat-menu #menu="matMenu">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image">
+                            <a>
+                                <p class="circle" *ngIf="Notpic">{{name | initialsPipe | uppercase}}</p>
+                            </a>
+                            <a>
+                                <img src="{{profileUrl}}" class="circle" *ngIf="pic">
+                            </a>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <mat-card-subtitle>{{name}}</mat-card-subtitle>
+                                </td>
+                                <td class="cols">
+                                    <mat-card-actions>
+                                        <button mat-button (click)="openDialog()">Change Picture</button>
+                                    </mat-card-actions>
+                                </td>
+                            </tr>
+                        </table>
+                    </mat-card-header>
+                </mat-card>
+            </mat-menu>
+
+
+        </div>
+        <div class="p-2 bd-highlight">
+            <p>{{name}}</p>
+            <p>{{email}}</p>
+        </div>
+        <div class="p-2 bd-highlight">
+            <button type="submit" (click)="onSetting()"><i class="fa fa-cog fa-2x fa-pull-right"
+                    aria-hidden="true"></i></button>
+        </div>
+        <div class="p-2 bd-highlight">
+            <i routerLink="/auth/signin" class="fa fa-sign-out fa-2x fa-pull-right" aria-hidden="true"></i>
+        </div>
+    </div>
+</nav>
+
+<app-sidenav></app-sidenav>

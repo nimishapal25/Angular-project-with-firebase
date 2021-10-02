@@ -1,0 +1,25 @@
+<section class="container-fluid bg">
+    <section class="row justify-content-center">
+        <section class="col-12 col-sm-6 col-md-3">
+            <form class="form-container" [formGroup]="userUpdateform" (ngSubmit)="onUpdate(userUpdateform.value)">
+                <div class="heading">
+                    <h3>Update User</h3>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="username" placeholder="User Name">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" formControlName="bio" placeholder="Short Bio" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block"
+                    [disabled]="userUpdateform.invalid">Update</button>
+            </form>
+        </section>
+    </section>
+</section>

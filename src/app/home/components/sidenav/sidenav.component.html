@@ -1,0 +1,30 @@
+<mat-toolbar style="background-color:#F5F5F5;">
+
+    <span class="product-title gap">Products Catalog</span>
+    <div class="filler">
+        <label style=" margin-right: 30px;">File:{{productLength}}</label>
+        <mat-form-field>
+            <mat-label>Apply filter</mat-label>
+            <mat-select [value]="sortingProduct" (selectionChange)="sortProduct($event)">
+                <mat-option value="Most Recent">Most Recent</mat-option>
+                <mat-option value="Oldest">Oldest</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-fabcolor="accent" style="margin: 10px; background-color: #9EAEB2" (click)="drawer.toggle()">
+            <span class="material-icons">
+                +
+            </span>
+        </button>
+    </div>
+</mat-toolbar>
+
+
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer mode="side" position="end" #drawer (closeSidenav)="closed($event)">
+        <app-add-product></app-add-product>
+    </mat-drawer>
+    <mat-drawer-content style="width:100%;">
+        <app-product-list (productLength)="noOfproduct($event)" [sorting]="sortingProduct"></app-product-list>
+    </mat-drawer-content>
+</mat-drawer-container>

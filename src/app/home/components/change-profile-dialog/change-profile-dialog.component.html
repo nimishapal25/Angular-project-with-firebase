@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Change your profile picture</h1>
+<form class="example-form" #uploadForm="ngForm" (ngSubmit)="onSave()">
+    <input type="file" #uploader accept="image/*" name="imgUrl" ngModel (change)="uploadFile($event)">
+    <div mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close>Close</button>
+        <button mat-raised-button (click)="onRemove()">Remove</button>
+        <button type="submit" mat-raised-button>Save</button>
+        <div>&nbsp;&nbsp;&nbsp;
+            <img [src]="profileUrl" *ngIf="pic" class="circle image-preview" (change)="uploader($event)">
+            <p class="circle" *ngIf="!pic">{{name | initialsPipe | uppercase}}
+            </p>
+        </div>
+    </div>
+</form>

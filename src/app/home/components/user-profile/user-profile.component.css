@@ -1,0 +1,35 @@
+.circle{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #C8A2C8;
+    text-align: center;
+    background:#F5F5F5;
+}
+
+.navbar{
+    background-color:#aec6cf;
+    height:30%;
+}
+
+.flex-row{
+    position:relative;
+    left: 1000px;
+}
+
+.p-2 button{
+    background-color:#aec6cf;
+    border: #fff;
+}
+
+ .fa-plus-square{
+    position:relative;
+    top:10px;
+    left: 1100px;
+}
+
+
+
+

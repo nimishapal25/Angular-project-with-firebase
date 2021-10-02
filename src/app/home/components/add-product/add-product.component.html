@@ -1,0 +1,28 @@
+<form [formGroup]="addProduct" class="form-container" (ngSubmit)="onAddingProduct()">
+    <div class="form-group">
+        <br>
+        <h1>Add Product</h1>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="pid" placeholder="Product Id">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="pname" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" formControlName="pdescription" placeholder="Description" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <input hidden type="file" #uploader formControlName="pphotoUrl" (change)="uploadFile($event)">
+        <img class="image-preview" [src]="pphotoUrl" (click)="uploader.click()"
+            style="max-height: 100px; max-width: 150px;">
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a (click)="uploader.click()" style="border: #aec6cf; background-color: #aec6cf;">
+                <i class="fa fa-cloud-upload fa-4x" aria-hidden="true"></i>
+            </a><br><br>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-block" style="background-color:#055C9D" (click)="onClose()">Submit</button>
+</form>

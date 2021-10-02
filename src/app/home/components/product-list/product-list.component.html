@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="centerd" *ngIf="!productArray.length && !isFetching">
+        <h4>No Product Available</h4><br>
+    </div>
+</div>
+
+
+<div class="row" *ngIf="productArray.length && !isFetching">
+    <div *ngFor="let prodData of productArray; let i=index" class="col-md-3 col-md-3 col-md-3">
+        <mat-card appHighlight class="example-card" routerLinkActive="active" routerLink="detail/{{prodData.prodId}}"
+            style="width:300px; height:300px; margin:10px;outline: none;">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image">
+                    <p class="circle" *ngIf="!prodData.pic">{{prodData.uname | initialsPipe | uppercase}}</p>
+                    <img *ngIf="prodData.pic" src="{{prodData.uphotoUrl}}" class="circle">
+                </div>
+                <mat-card-title>{{prodData.uname | titlecase}}</mat-card-title>
+                <mat-card-subtitle>{{prodData.pname}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="prodData.pphotoUrl"
+                style="width:100%;height:40%;background-size:cover;margin-top: 50px;" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p style="font-size: 12px;">
+                    {{prodData.pdescription}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+<h4 *ngIf="isFetching && !error">Loading...</h4>
+<div class="alert alert-danger" *ngIf="error">
+    <h1>An Error occured</h1>
+    <p>{{error}}</p>
+</div>
+
+<div>
+    <router-outlet></router-outlet>
+</div>

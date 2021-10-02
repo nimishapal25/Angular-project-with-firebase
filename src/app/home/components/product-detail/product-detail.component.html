@@ -1,0 +1,14 @@
+<div *ngIf="isFetching">
+    <h3> Loading...</h3>
+</div>
+
+<div class="card pull-right" style="width: 18rem;" *ngIf="!isFetching">
+    <img class="card-img-top" src="{{url}}">
+    <div class="card-body">
+        <p class="card-text">
+            File Name : {{pImageName}}<br>
+            Created On : {{pDate}}<br>
+            File Size : {{pImageSize | fileSize}}
+        </p>
+    </div>
+</div>
